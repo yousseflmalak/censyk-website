@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Mail } from 'lucide-react';
+import Logo from './Logo';
 
 export default function Footer() {
     return (
@@ -8,9 +9,9 @@ export default function Footer() {
 
                 {/* Column 1: Company Info */}
                 <div>
-                    <h2 className="text-2xl font-bold mb-4">
-                        CEN<span className="text-accent">SYK</span>
-                    </h2>
+                    <div className="mb-4">
+                        <Logo variant="light" />
+                    </div>
                     <p className="text-gray-400 text-sm leading-relaxed mb-6">
                         We are a group of specialized professionals linked by a passion for business development and digital transformation.
                     </p>

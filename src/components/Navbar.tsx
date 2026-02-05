@@ -4,6 +4,7 @@ import { Menu, X, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import Logo from './Logo';
 
 const navLinks = [
     { name: 'Home', path: '/' },
@@ -43,9 +44,7 @@ export default function Navbar() {
                 )}
             >
                 <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-                    <Link to="/" className="text-2xl font-bold tracking-tighter text-white">
-                        CEN<span className="text-accent">SYK</span>
-                    </Link>
+                    <Logo variant="light" />
 
                     {/* Desktop Nav */}
                     <nav className="hidden lg:flex items-center gap-6">
