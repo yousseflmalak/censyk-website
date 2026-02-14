@@ -9,6 +9,11 @@ import Invoicing from './pages/Invoicing';
 import Training from './pages/Training';
 import Privacy from './pages/Privacy';
 import SAP from './pages/SAP';
+import Login from './pages/Login';
+import ProtectedRoute from './components/ProtectedRoute';
+import HubDashboard from './pages/Hub/HubDashboard';
+import HubTraining from './pages/Hub/HubTraining';
+import HubToolkit from './pages/Hub/HubToolkit';
 
 // Placeholder for 404
 const NotFound = () => (
@@ -32,6 +37,13 @@ function App() {
           <Route path="invoicing" element={<Invoicing />} />
           <Route path="training" element={<Training />} />
           <Route path="privacy" element={<Privacy />} />
+          <Route path="login" element={<Login />} />
+
+          {/* Protected Portal Routes */}
+          <Route path="hub" element={<ProtectedRoute><HubDashboard /></ProtectedRoute>} />
+          <Route path="hub/training" element={<ProtectedRoute><HubTraining /></ProtectedRoute>} />
+          <Route path="hub/toolkit" element={<ProtectedRoute><HubToolkit /></ProtectedRoute>} />
+
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

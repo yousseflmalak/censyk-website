@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Mail } from 'lucide-react';
+import { Menu, X, Mail, LogIn, Layout as LayoutIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import Logo from './Logo';
+import { useAuth } from '../context/AuthContext';
 
 const navLinks = [
     { name: 'Home', path: '/' },
@@ -21,6 +22,7 @@ export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
+    const { isAuthenticated } = useAuth();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -62,11 +64,21 @@ export default function Navbar() {
                         ))}
                     </nav>
 
-                    {/* Contact Info / CTA (Hidden on small screens) */}
-                    <div className="hidden xl:flex items-center gap-4 text-white/80 text-xs">
-                        <a href="mailto:info@censyk.com" className="flex items-center gap-1 hover:text-white">
+                    {/* Contact Info / CTA / Login */}
+                    <div className="hidden xl:flex items-center gap-6 text-white/80 text-xs">
+                        <a href="mailto:info@censyk.com" className="flex items-center gap-1 hover:text-white transition-colors">
                             <Mail size={14} /> info@censyk.com
                         </a>
+                        <Link
+                            to={isAuthenticated ? "/hub" : "/login"}
+                            className="flex items-center gap-2 bg-accent/10 border border-accent/30 text-accent px-4 py-2 rounded-full hover:bg-accent/20 transition-all font-semibold"
+                        >
+                            {isAuthenticated ? (
+                                <><LayoutIcon size={14} /> Portal</>
+                            ) : (
+                                <><LogIn size={14} /> Log in</>
+                            )}
+                        </Link>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -98,6 +110,13 @@ export default function Navbar() {
                                     {link.name}
                                 </Link>
                             ))}
+                            <Link
+                                to={isAuthenticated ? "/hub" : "/login"}
+                                className="text-lg font-bold text-accent py-4 mt-2 flex items-center justify-center gap-2"
+                            >
+                                {isAuthenticated ? <LayoutIcon size={20} /> : <LogIn size={20} />}
+                                {isAuthenticated ? "Portal" : "Log in"}
+                            </Link>
                         </nav>
                         <div className="mt-8 flex flex-col items-center gap-4 text-white/60">
                             <a href="mailto:info@censyk.com" className="flex items-center gap-2">
