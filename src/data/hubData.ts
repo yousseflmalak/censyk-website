@@ -49,7 +49,7 @@ export const TRAINING_DATA: TrainingModule[] = [
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div class="bg-blue-600/10 p-4 rounded-xl border border-blue-500/20">
                         <h4 class="font-bold text-blue-400 mb-2">1. eDocument Core</h4>
-                        <p class="text-xs">The lifecycle engine in S/4HANA (Tables: <code>EDOCUMENT</code>, <code>EDOPROCSTEP</code>). This is where the status management happens.</p>
+                        <p class="text-xs">The lifecycle engine in S/4HANA (Tables: <code>EDOCUMENT</code>, <code>EDOSTATUS</code>). This is where the status management happens.</p>
                     </div>
                     <div class="bg-indigo-600/10 p-4 rounded-xl border border-indigo-500/20">
                         <h4 class="font-bold text-indigo-400 mb-2">2. AIF Mapping</h4>
@@ -76,11 +76,11 @@ export const TRAINING_DATA: TrainingModule[] = [
                     <h4 class="font-bold text-white mb-4">Critical Maintenance Views</h4>
                     <ul class="space-y-3 text-sm">
                         <li class="flex items-center gap-3">
-                            <code class="text-blue-400 bg-blue-400/10 px-2 py-1 rounded">EDOCOMPANYV</code>
+                            <code class="text-blue-400 bg-blue-400/10 px-2 py-1 rounded">EDOCOMPANYACTIV</code>
                             <span class="text-gray-400">Activate eDocument for Company Code & Country BE.</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <code class="text-blue-400 bg-blue-400/10 px-2 py-1 rounded">V_EDOROUTE</code>
+                            <code class="text-blue-400 bg-blue-400/10 px-2 py-1 rounded">EDOINTV</code>
                             <span class="text-gray-400">Define Peppol as the default transmission route.</span>
                         </li>
                         <li class="flex items-center gap-3">
